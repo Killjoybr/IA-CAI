@@ -1,0 +1,7 @@
+dotenv
+autogen
+requests
+beautifulsoup4
+scikit-learn
+tqdm
+urllib3
