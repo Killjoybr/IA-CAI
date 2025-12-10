@@ -47,23 +47,18 @@ TypeSymbol = Literal['']
 @user_proxy.register_for_execution()
 # registro de assinaturas das ferramentas do agente CAI
 
-@CAI.register_for_llm(description='Create file based on previous output')
-def create_file(
-    texto: Annotated[str, "Grava arquivo com output anterior, note que se ouver espacos em branco substitua-os por _"]
+@CAI.register_for_llm(description='Initiate pentest based on user request.')
+def initiate_pentest(
+    url: Annotated[str, "Captura a URL do site que será analisado."]
 ):
     try:
-        subprocess.run(['./createFile.sh', texto], shell=True)
-        return 'Arquivo criado'
+        return subprocess.run(['python3', './src/pentest_agent.py', url], shell=False, capture_output=True, text=True).stdout
     except:
-        return 'Não consegui criar o arquivo'
-# @CAI.register_for_llm(description='Get content from user')
-# def get_content(
-#         content: Annotated[str, "Captura a palavra que o usuario quer salvar"]
-#     )-> str:
-#     return f'{content}'
+        return 'Não consegui realizar o pentest'
+
 
 # iniciando a conversa
 user_proxy.initiate_chat(
     CAI,
-    message = 'Crie um arquivo meu nome: Joao da Silva'
+    message = 'test for vulnerabilities in http://testphp.vulnweb.com'
 )
