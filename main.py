@@ -62,3 +62,19 @@ user_proxy.initiate_chat(
     CAI,
     message = 'test for vulnerabilities in http://testphp.vulnweb.com'
 )
+
+# http://testhtml5.vulnweb.com/
+
+## http://testphp.vulnweb.com
+
+# https://ruandavid.com.br
+
+# http://testaspnet.vulnweb.com/
+
+# http://rest.vulnweb.com/
+
+# http://www.badstore.net/
+
+## http://zero.webappsecurity.com/
+
+# http://owasp.org/www-project-juice-shop/
